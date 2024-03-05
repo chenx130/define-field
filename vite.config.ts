@@ -3,17 +3,20 @@ import dts from 'vite-plugin-dts'
 
 export default defineConfig({
 
-  plugins: [dts({
-    insertTypesEntry: true,
-  })],
+  plugins: [
+    dts({
+      insertTypesEntry: true,
+      tsconfigPath: './tsconfig.build.json',
+    }),
+  ],
 
   build: {
+    reportCompressedSize: false,
     lib: {
       entry: {
-        main: 'src/field.ts',
+        field: 'src/field.ts',
       },
-      formats: ['es', 'cjs'],
+      formats: ['es'],
     },
-    reportCompressedSize: false,
   },
 })

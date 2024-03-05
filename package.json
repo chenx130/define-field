@@ -1,28 +1,25 @@
 {
   "name": "define-field",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "license": "MIT",
   "keywords": [
     "query",
     "define-field"
   ],
-  "exports": {
-    ".": {
-      "module": "./dist/main.js",
-      "types": "./dist/index.d.ts",
-      "import": "./dist/main.js",
-      "require": "./dist/main.cjs"
-    }
-  },
+  "main": "dist/field.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "vite build"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.8.0",
     "eslint": "^8.57.0",
     "typescript": "^5.2.2",
-    "vite": "^5.1.4",
+    "vite": "^5.1.5",
     "vite-plugin-dts": "^3.7.3"
   }
 }
