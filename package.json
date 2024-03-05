@@ -1,0 +1,28 @@
+{
+  "name": "define-field",
+  "type": "module",
+  "version": "0.0.1",
+  "keywords": [
+    "query",
+    "define-field"
+  ],
+  "exports": {
+    ".": {
+      "module": "./dist/main.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/main.js",
+      "require": "./dist/main.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.8.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4",
+    "vite-plugin-dts": "^3.7.3"
+  }
+}
