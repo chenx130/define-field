@@ -1,7 +1,7 @@
 {
   "name": "define-field",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "keywords": [
     "query",
@@ -14,6 +14,7 @@
     }
   },
   "main": "dist/main.cjs",
+  "module": "dist/main.mjs",
   "types": "dist/main.d.ts",
   "files": [
     "dist"
