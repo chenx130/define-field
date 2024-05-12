@@ -12,6 +12,7 @@ export interface QueryField<T extends QueryFieldTypes, Val, Required extends boo
   required: Required
   parse: (v: string | string[]) => Val | Error
   validator?: (v: Val) => Error | undefined | null | void
+  order: number
 }
 
 export interface QueryField0<T, Required extends boolean = false> {
@@ -19,6 +20,7 @@ export interface QueryField0<T, Required extends boolean = false> {
   required?: Required
   description: string
   validator?: (v: T) => Error | undefined | null | void
+  order?: number
 }
 
 function nonStringArray(v: string | string[]): string {
@@ -27,7 +29,7 @@ function nonStringArray(v: string | string[]): string {
   return v
 }
 
-function _field<Type extends QueryFieldTypes, Val, Required extends boolean>(type: Type, f: QueryField0<Val, Required>, parser: ((v: string | string[]) => Error | Val)): QueryField<Type, Val, Required> {
+export function _field<Type extends QueryFieldTypes, Val, Required extends boolean>(type: Type, f: QueryField0<Val, Required>, parser: ((v: string | string[]) => Error | Val)): QueryField<Type, Val, Required> {
   return {
     type,
     default: f.default as Val,
@@ -35,6 +37,7 @@ function _field<Type extends QueryFieldTypes, Val, Required extends boolean>(typ
     required: f.required ?? false as Required,
     validator: f.validator,
     parse: parser,
+    order: f.order ?? 0,
   }
 }
 
@@ -189,7 +192,7 @@ export function printFields(fields: Record<string, QueryField<QueryFieldTypes, a
     const bRequired = b[1].required ? 0 : 1
     if (aRequired !== bRequired)
       return aRequired - bRequired
-    return a[0].localeCompare(b[0])
+    return a[1].order - b[1].order
   })
 
   let len = 0
