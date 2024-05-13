@@ -31,7 +31,7 @@ export function parseColor(colorString: string): { r: number, g: number, b: numb
 }
 
 export function parseBoolean(s: string): boolean {
-  return !!s?.length && ['on', 'true', 'yes', 'y'].includes(s.toLowerCase())
+  return !!s?.length && ['on', 'true', 'yes', 'y', '1'].includes(s.toLowerCase())
 }
 
 export function parseDate(s: string): Date | undefined {
